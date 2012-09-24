@@ -33,9 +33,9 @@ set incsearch
 " COLOR
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set t_Co=256 " 256 colors
-set background=dark
-color solarized
+set background=light
+set t_Co=256
+colorscheme solarized
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " STATUS LINE
