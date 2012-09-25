@@ -28,7 +28,11 @@ set hlsearch
 set ignorecase
 " incremental search
 set incsearch
-
+" don't need any backups
+set nobackup
+set nowritebackup
+" leader mapped to '
+let mapleader= "'"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " COLOR
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -71,3 +75,29 @@ function! InsertTabWrapper()
 endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-n>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" SWITCH BETWEEN CUCUMBER SPEC AND STEP DEFINITION FILE
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! OpenCukeAlternate()
+	let new_file = AlternateForCurrentFile()
+	exec ':e ' . new_file
+endfunction
+
+function! AlternateForCurrentFile()
+	let current_file = expand('%')
+	let new_file = current_file
+	let in_feature = match(current_file, '\.feature$') != -1
+	
+	if in_feature
+		let new_file = substitute(new_file, '\.feature$', '_steps\.rb','')
+		echo "Will try to open the cucumber steps located in file " . new_file
+	else
+		let new_file = substitute(new_file, '/step_definitions', '','')
+		let new_file = substitute(new_file, '_steps', '','')
+		let new_file = substitute(new_file, '_steps\.rb', '\.feature','')
+		echo "Will try to open the cucumber feature file called " . new_file 
+	endif
+	return new_file
+endfunction
+map <leader>t :call OpenCukeAlternate()<cr>
