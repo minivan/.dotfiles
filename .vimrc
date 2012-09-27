@@ -16,6 +16,8 @@ set cursorline
 set number
 " always show status line
 set ls=2
+" highlight trailing space
+set list listchars=trail:·,tab:··
 " number of spaces for tab character
 set tabstop=2
 " number of spacer to autoindent
@@ -33,6 +35,7 @@ set nobackup
 set nowritebackup
 " leader mapped to '
 let mapleader= "'"
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " COLOR
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -100,3 +103,4 @@ function! AlternateForCurrentFile()
 	return new_file
 endfunction
 map <leader>t :call OpenCukeAlternate()<cr>
+
