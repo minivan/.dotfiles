@@ -20,8 +20,10 @@ set ls=2
 set list listchars=trail:·,tab:··
 " number of spaces for tab character
 set tabstop=2
-" number of spacer to autoindent
+" number of spaces to autoindent
 set shiftwidth=2
+" convert tabs to spaces
+set expandtab
 " display incomplete commands
 set showcmd
 " highlight search
