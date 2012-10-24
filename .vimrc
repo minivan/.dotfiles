@@ -38,6 +38,7 @@ set nowritebackup
 " leader mapped to '
 let mapleader= "'"
 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " COLOR
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -102,9 +103,15 @@ function! AlternateForCurrentFile()
     let new_file = substitute(new_file, '/step_definitions', '','')
     let new_file = substitute(new_file, '_steps', '','')
     let new_file = substitute(new_file, '_steps\.rb', '\.feature','')
-    echo "Will try to open the cucumber feature file called " . new_file 
+    echo "Will try to open the cucumber feature file called " . new_file
   endif
   return new_file
 endfunction
 map <leader>t :call OpenCukeAlternate()<cr>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-rspec bindings
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <leader>r :RunSpec<cr>
+map <leader>l :RunSpecLine<cr>
 
