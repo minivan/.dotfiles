@@ -15,10 +15,9 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 alias heroku="/usr/local/heroku/bin/heroku"
 alias tmux="TERM=screen-256color-bce tmux"
-alias emacs="emacs -nw"
 
 ff () {
-  find . | xargs grep "$1" -sl | view - -c "/$1/";
+  grep -r "$1" -sl | view - -c "/$1/";
 }
 fa () {
   find app/models app/controllers | xargs grep "$1" -sl | view - -c "/$1/";
