@@ -4,7 +4,7 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="miloshadzic"
 
 alias r=rails
-plugins=(git debian rails3)
+plugins=(git debian rails3 mercurial)
 
 source $ZSH/oh-my-zsh.sh
 
