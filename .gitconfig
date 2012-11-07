@@ -5,4 +5,8 @@
   co = checkout -B
   lg = log -p
   ap = add -p
-
+[user]
+  name = Ivan Zarea
+  email = zarea.ion@gmail.com
+[core]
+  editor = vim
