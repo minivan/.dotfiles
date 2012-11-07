@@ -1,0 +1,8 @@
+[alias]
+  st = status
+  ci = commit
+  br = branch
+  co = checkout -B
+  lg = log -p
+  ap = add -p
+
