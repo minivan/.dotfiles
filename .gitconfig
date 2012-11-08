@@ -2,11 +2,13 @@
   st = status
   ci = commit
   br = branch
-  co = checkout -B
-  lg = log -p
+  co = checkout
+  lg = log -p --oneline -- color
   ap = add -p
 [user]
   name = Ivan Zarea
   email = zarea.ion@gmail.com
 [core]
   editor = vim
+[color]
+  ui = true
