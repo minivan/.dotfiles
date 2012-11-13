@@ -17,7 +17,7 @@ alias heroku="/usr/local/heroku/bin/heroku"
 alias tmux="TERM=screen-256color-bce tmux"
 
 ff () {
-  grep -r "$1" -sl | view - -c "/$1/";
+  find . | xargs grep "$1" -sl | view - -c "/$1/";
 }
 fa () {
   find app/models app/controllers | xargs grep "$1" -sl | view - -c "/$1/";
