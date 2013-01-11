@@ -17,7 +17,7 @@ set number
 " always show status line
 set ls=2
 " highlight trailing space
-set list listchars=trail:·,tab:··
+set list listchars=trail:·,tab:·�
 " number of spaces for tab character
 set tabstop=2
 " number of spaces to autoindent
@@ -114,4 +114,25 @@ map <leader>t :call OpenCukeAlternate()<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 map <leader>r :RunSpec<cr>
 map <leader>l :RunSpecLine<cr>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+" focus mode
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! ToggleFocusMode()
+  if (&foldcolumn != 12)
+    set laststatus=0
+    set numberwidth=10
+    set foldcolumn=12
+    set noruler
+    hi FoldColumn ctermbg=none
+    hi LineNr ctermfg=0 ctermbg=none
+    hi NonText ctermfg=0
+  else
+    set laststatus=2
+    set numberwidth=4
+    set foldcolumn=0
+    set ruler
+  endif
+endfunc
+nnoremap <F1> :call ToggleFocusMode()<cr>
 

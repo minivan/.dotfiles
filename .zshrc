@@ -31,6 +31,9 @@ fd () {
 fv () {
   find app/views/ | xargs grep "$1" -sl | view - -c "/$1/";
 }
+bkp() {
+  cp "$1"{,.bak}
+}
 
 
 
