@@ -1,6 +1,7 @@
 
 " enable pathogen on start up
 call pathogen#runtime_append_all_bundles()
+call pathogen#infect()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " GENERAL PARAMS
@@ -35,6 +36,7 @@ set incsearch
 " don't need any backups
 set nobackup
 set nowritebackup
+set noswapfile
 " leader mapped to '
 let mapleader= "'"
 

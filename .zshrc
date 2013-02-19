@@ -39,3 +39,5 @@ bkp() {
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+[[ -s /home/minivan/.nvm/nvm.sh ]] && . /home/minivan/.nvm/nvm.sh # This loads NVM
+
