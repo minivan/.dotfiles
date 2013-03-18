@@ -1,3 +1,5 @@
+scriptencoding utf-8
+set encoding=utf-8
 
 " enable pathogen on start up
 call pathogen#runtime_append_all_bundles()
@@ -61,11 +63,11 @@ let g:Powerline_symbols = 'fancy'
 " MISC KEY MAPS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" <c-c> instead of ESC. Of course. 
+" <c-c> instead of ESC. Of course.
 map <c-c> <esc>
 " Clear the search buffer when hitting return
 function! MapCR()
-  nnoremap <cr> :nohlsearch<cr>
+  nnoremap <Space> :nohlsearch<cr>
 endfunction
 call MapCR()
 
@@ -86,55 +88,12 @@ inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-n>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" SWITCH BETWEEN CUCUMBER SPEC AND STEP DEFINITION FILE
+" FOLD JAVASCRIPT AUTOMATICALLY
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! OpenCukeAlternate()
-  let new_file = AlternateForCurrentFile()
-  exec ':e ' . new_file
-endfunction
 
-function! AlternateForCurrentFile()
-  let current_file = expand('%')
-  let new_file = current_file
-  let in_feature = match(current_file, '\.feature$') != -1
+set foldmethod=syntax
+let javaScript_fold=1         " JavaScript
+hi Folded term=bold cterm=bold
+set fillchars="fold:"
 
-  if in_feature
-    let new_file = substitute(new_file, '\.feature$', '_steps\.rb','')
-    echo "Will try to open the cucumber steps located in file " . new_file
-  else
-    let new_file = substitute(new_file, '/step_definitions', '','')
-    let new_file = substitute(new_file, '_steps', '','')
-    let new_file = substitute(new_file, '_steps\.rb', '\.feature','')
-    echo "Will try to open the cucumber feature file called " . new_file
-  endif
-  return new_file
-endfunction
-map <leader>t :call OpenCukeAlternate()<cr>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-rspec bindings
-""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <leader>r :RunSpec<cr>
-map <leader>l :RunSpecLine<cr>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""
-" focus mode
-""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! ToggleFocusMode()
-  if (&foldcolumn != 12)
-    set laststatus=0
-    set numberwidth=10
-    set foldcolumn=12
-    set noruler
-    hi FoldColumn ctermbg=none
-    hi LineNr ctermfg=0 ctermbg=none
-    hi NonText ctermfg=0
-  else
-    set laststatus=2
-    set numberwidth=4
-    set foldcolumn=0
-    set ruler
-  endif
-endfunc
-nnoremap <F1> :call ToggleFocusMode()<cr>
 
