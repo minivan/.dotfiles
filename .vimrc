@@ -1,9 +1,21 @@
-scriptencoding utf-8
-set encoding=utf-8
+set nocompatible
+filetype off
 
-" enable pathogen on start up
-call pathogen#runtime_append_all_bundles()
-call pathogen#infect()
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'sickill/vim-monokai'
+Bundle 'kien/ctrlp.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'mileszs/ack.vim'
+Bundle 'tpope/vim-surround'
+Bundle 'terryma/vim-multiple-cursors'
+
+
+filetype plugin indent on     " required!
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " GENERAL PARAMS
@@ -20,7 +32,7 @@ set number
 " always show status line
 set ls=2
 " highlight trailing space
-set list listchars=trail:·,tab:·�
+set list listchars=trail:·,tab:··
 " number of spaces for tab character
 set tabstop=2
 " number of spaces to autoindent
@@ -39,17 +51,14 @@ set incsearch
 set nobackup
 set nowritebackup
 set noswapfile
-" leader mapped to '
-let mapleader= "'"
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " COLOR
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set background=light
+set background=dark
 set t_Co=256
-colorscheme solarized
+colorscheme Monokai
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " STATUS LINE
@@ -87,13 +96,5 @@ endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-n>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" FOLD JAVASCRIPT AUTOMATICALLY
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set foldmethod=syntax
 let javaScript_fold=1         " JavaScript
-hi Folded term=bold cterm=bold
-set fillchars="fold:"
-
-
