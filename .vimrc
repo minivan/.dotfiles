@@ -5,14 +5,9 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'Lokaltog/vim-powerline'
 Bundle 'sickill/vim-monokai'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
-Bundle 'mileszs/ack.vim'
-Bundle 'tpope/vim-surround'
-Bundle 'terryma/vim-multiple-cursors'
 
 
 filetype plugin indent on     " required!
@@ -29,10 +24,9 @@ filetype plugin indent on
 set cursorline
 " show line numbers
 set number
-" always show status line
-set ls=2
+" always show status line set ls=2
 " highlight trailing space
-set list listchars=trail:·,tab:··
+set list listchars=trail:.,tab:..
 " number of spaces for tab character
 set tabstop=2
 " number of spaces to autoindent
@@ -65,9 +59,9 @@ colorscheme Monokai
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
-"needed for the powerline:
-let g:Powerline_symbols = 'fancy'
 
+" set nerdtree to not show any arrows
+let g:NERDTreeDirArrows=0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MISC KEY MAPS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -97,4 +91,3 @@ inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-n>
 
 
-let javaScript_fold=1         " JavaScript
